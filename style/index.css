@@ -1,18 +1,18 @@
 @font-face {
   font-family: abdoullah-ashgar-el-kharef;
-  src: url("font/abdoullah-ashgar-el-kharef.ttf");
+  src: url("../font/abdoullah-ashgar-el-kharef.ttf");
 }
 
 @font-face {
   font-family: Mulish;
-  src: url("font/Mulish-VariableFont_wght.ttf");
+  src: url("../font/Mulish-VariableFont_wght.ttf");
 }
 
 * {
   margin: 0;
 }
 body {
-  background: url(imgs/gradientbackground.png), #ffffff;
+  background: url(../imgs/gradientbackground.png), #ffffff;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -64,6 +64,7 @@ main {
 }
 
 .button-blue {
+  border: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -80,6 +81,7 @@ main {
   font-size: 1rem;
   line-height: 140%;
   color: #ffffff;
+  align-self: stretch;
 }
 
 /**************************/
@@ -124,9 +126,9 @@ main {
     text-align: center;
   }
 
-  .button-blue {
+  /* .button-blue {
     align-self: stretch;
-  }
+  } */
 }
 
 /* ///////////////////// */
@@ -134,5 +136,8 @@ main {
   .container-img {
     width: 315px;
     height: 315px;
+  }
+  .container {
+    margin: 0;
   }
 }
