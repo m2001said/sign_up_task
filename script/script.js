@@ -4,27 +4,21 @@ const email = document.getElementById("email");
 const password = document.getElementById("password");
 const confirmPassword = document.getElementById("confirm-password");
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  checkInputs();
-});
-
 const checkInputs = () => {
   const usernameValue = username.value.trim();
   const emailValue = email.value.trim();
   const passwordValue = password.value.trim();
   const confirmPasswordValue = confirmPassword.value.trim();
 
-  const first = usernameValue.substring(0, 1);
-  const last = usernameValue.substring(usernameValue.length - 1);
-  console.log(first, typeof first);
-  console.log(last, typeof last);
-  if (first === 5) {
-    console.log("num");
-  } else {
-    console.log("no");
-  }
+  // const first = usernameValue.substring(0, 1);
+  // const last = usernameValue.substring(usernameValue.length - 1);
+  // console.log(first, typeof first);
+  // console.log(last, typeof last);
+  // if (first === 5) {
+  //   console.log("num");
+  // } else {
+  //   console.log("no");
+  // }
 
   //---------username-----------
   if (usernameValue === "") {
@@ -33,14 +27,15 @@ const checkInputs = () => {
   } else if (usernameValue.length < 5 || usernameValue.length > 15) {
     setErrorFor(username, "Username can be from 5 to 15 character only");
     //
-    // } else if (!validStartAndEnd(usernameValue)) {
-    //   setErrorFor(username, "Username can not start with any number");
-
+  } else if (usernameValue[0] >= 0) {
+    setErrorFor(username, "Username can not start with any number");
+  } else if (usernameValue[usernameValue.length - 1] >= 0) {
+    setErrorFor(username, "Username can not end with any number");
     // ! make sure
   } else if (!usernameValue.match("^[A-Za-z0-9]*$")) {
     setErrorFor(
       username,
-      "Username only can be capital, small letters and numbers   "
+      "Username only can be capital, small letters, numbers and no spaces"
     );
   } else {
     setSuccessFor(username);
@@ -112,3 +107,58 @@ const setSuccessFor = (input) => {
 //     }
 //   }
 // };
+/*------------------------------------  
+-----------------Fetching Api-----------------
+---------------------------------------*/
+// const api = (jsonData) => {
+//   return fetch("https://goldblv.com/api/hiring/tasks/register", {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify(jsonData),
+//   });
+// };
+/*------------------------------------  
+-----------------Submit form-----------------
+---------------------------------------*/
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  console.log(e);
+  checkInputs();
+
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData);
+
+  fetch("https://reqres.in/api/users", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      const emailLocal = localStorage.setItem("email", email.value);
+      const usernameLocal = localStorage.setItem("username", username.value);
+      window.location.replace("succeeded.html");
+      console.log(data);
+    })
+    .catch((err) => console.log(err));
+  // const username = e.target[0].value;
+  // const email = e.target[1].value;
+  // const password = e.target[2].value;
+  // const confirmedPassword = e.target[3].value;
+
+  // api({ username, email, password, confirmPassword })
+  //   .then((res) => res.json())
+  //   .then((json) => {
+  //     console.log(json);
+  //     window.location.pathname = "succeeded.html";
+  //     const changedEmail = (document.querySelector(".changed-email").innerHTML =
+  //       "All Done " + json.data.username + "email" + json.data.email);
+  //   })
+  //   .catch((error) => {
+  //     console.log(error);
+  //   });
+});
