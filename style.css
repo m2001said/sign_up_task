@@ -1,0 +1,89 @@
+@font-face {
+  font-family: abdoullah-ashgar-el-kharef;
+  src: url("/font/abdoullah-ashgar-el-kharef.ttf");
+}
+
+@font-face {
+  font-family: Mulish;
+  src: url("/font/Mulish-VariableFont_wght.ttf");
+}
+
+* {
+  margin: 0;
+}
+
+main {
+  background: url(/imgs/gradientbackground.png), #ffffff;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px;
+  gap: 60px;
+  background: rgba(245, 247, 255, 0.85);
+  border-radius: 10px;
+  /* margin: 0 auto; */
+  /* position: absolute; */
+  /* top: 50%; */
+  /* left: 50%; */
+  /* transform: translate(0, -50%); */
+}
+.container-img {
+  width: 450px;
+}
+.container-text {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.container-text h1 {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 120%;
+  font-family: "abdoullah-ashgar-el-kharef";
+  color: #2d2d2d;
+}
+
+.container-text p {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 160%;
+  color: #1f1249;
+}
+
+.button-blue {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 50px;
+  /* gap: 12px; */
+  height: 60px;
+  background: linear-gradient(113.87deg, #2663df 14.81%, #758ff0 88.76%);
+  box-shadow: 0px 6px 18px #9cadf2;
+  border-radius: 10px;
+  /*  */
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 140%;
+  color: #ffffff;
+}
+
+/* .button-blue p {
+}
+ */
