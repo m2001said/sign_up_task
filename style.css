@@ -27,10 +27,11 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 60px;
-  gap: 60px;
+  padding: 4rem;
+  gap: 4rem;
   background: rgba(245, 247, 255, 0.85);
   border-radius: 10px;
+  margin: 1rem;
   /* margin: 0 auto; */
   /* position: absolute; */
   /* top: 50%; */
@@ -39,37 +40,39 @@ main {
 }
 .container-img {
   width: 450px;
+
+  border-radius: 10px;
 }
 .container-text {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 2rem;
 }
 
 .container-text h1 {
   font-style: normal;
   font-weight: 400;
-  font-size: 56px;
+  font-size: 3.5rem;
   line-height: 120%;
   font-family: "abdoullah-ashgar-el-kharef";
   color: #2d2d2d;
 }
 
 .container-text p {
+  max-width: 450px;
   font-family: "Mulish";
   font-style: normal;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 1.5rem;
   line-height: 160%;
   color: #1f1249;
 }
 
 .button-blue {
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 0px 50px;
+  padding: 0px 3rem;
   /* gap: 12px; */
   height: 60px;
   background: linear-gradient(113.87deg, #2663df 14.81%, #758ff0 88.76%);
@@ -79,11 +82,63 @@ main {
   font-family: "Mulish";
   font-style: normal;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 140%;
   color: #ffffff;
 }
 
-/* .button-blue p {
+/**************************/
+/* BELOW 950px (Tablets) */
+/**************************/
+
+@media (max-width: 950px) {
+  main {
+    height: 100%;
+  }
+  .container {
+    flex-direction: column;
+  }
+  .container-img {
+    width: 100%;
+  }
 }
- */
+
+/**************************/
+/* BELOW 544px (Phones) */
+/**************************/
+
+@media (max-width: 544px) {
+  .container-img {
+    width: 20rem;
+    /* height: 315px; */
+    object-fit: cover;
+  }
+  .container {
+    background: rgba(245, 247, 255, 0.85);
+    margin: 0;
+    border-radius: 0;
+    padding: 2rem;
+  }
+  .container-text {
+    align-items: center;
+  }
+  .container-text h1 {
+    font-size: 2.6rem;
+  }
+
+  .container-text p {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .button-blue {
+    align-self: stretch;
+  }
+}
+
+/* ///////////////////// */
+@media (max-width: 300px) {
+  .container-img {
+    width: 15rem;
+  }
+}
