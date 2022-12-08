@@ -20,6 +20,8 @@ form {
   border: 1px solid #dbe3ff;
   border-radius: 10px;
   position: relative;
+  /* for error message */
+  /* margin-bottom: 1rem; */
 }
 
 .container-text-input input {
@@ -28,6 +30,7 @@ form {
   font-size: 1rem;
   color: #3b3b3b;
   padding: 1rem;
+  width: 100%;
 }
 
 .container-text-input input::placeholder {
@@ -43,6 +46,42 @@ span {
   height: 20px;
   width: 1px;
   background-color: #dbe3ff;
+}
+.container-text-input p {
+  position: absolute;
+  right: 15px;
+  visibility: hidden;
+}
+.container-text-input small {
+  position: absolute;
+  left: 0;
+  bottom: -20px;
+  visibility: hidden;
+}
+
+/* ----------success styles------------ */
+.container-text-input.success {
+  border: solid 1px #2663df;
+}
+.container-text-input.success .success-icon {
+  color: #2663df;
+  visibility: visible;
+}
+
+/* ----------error styles------------ */
+.container-text-input.error {
+  border: solid 1px red;
+}
+.container-text-input.error .error-icon {
+  color: red;
+  visibility: visible;
+}
+.container-text-input.error small {
+  color: red;
+  visibility: visible;
+}
+.error {
+  margin-bottom: 1rem;
 }
 
 /**************************/

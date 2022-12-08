@@ -6,31 +6,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style/index.css" />
     <link rel="stylesheet" href="style/sign-up.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
     <title>Valinteca | Sign Up</title>
   </head>
   <body>
     <main class="sign-up">
       <div class="container">
         <img class="container-img" src="imgs/sign-up.png" />
+
         <div class="container-text">
           <h1>Create Account</h1>
+
           <p>Go ahead and sign up, let everyone know how awesome you are!</p>
-          <form>
+
+          <form id="form">
             <div class="container-text-input">
               <img src="imgs/User.svg" />
               <span></span>
-              <input type="text" id="name" placeholder="Username" />
+              <input type="text" id="username" placeholder="Username" />
+              <p class="success-icon">&#x2713;</p>
+              <p class="error-icon">&#x2717;</p>
+              <small>Error message</small>
             </div>
+
             <div class="container-text-input">
               <img src="imgs/EnvelopeSimple.svg" />
               <span></span>
               <input type="email" id="email" placeholder="Email" />
+              <p class="success-icon">&#x2713;</p>
+              <p class="error-icon">&#x2717;</p>
+              <small>Error message</small>
             </div>
+
             <div class="container-text-input">
               <img src="imgs/LockKey.svg" />
               <span></span>
               <input type="password" id="password" placeholder="Password" />
+              <p class="success-icon">&#x2713;</p>
+              <p class="error-icon">&#x2717;</p>
+              <small>Error message</small>
             </div>
+
             <div class="container-text-input">
               <img src="imgs/LockKey.svg" />
               <span></span>
@@ -39,11 +58,16 @@
                 id="confirm-password"
                 placeholder="Confirm password"
               />
+              <p class="success-icon">&#x2713;</p>
+              <p class="error-icon">&#x2717;</p>
+              <small>Error message</small>
             </div>
-            <input class="button-blue" type="submit" value="Create Account" />
+            <!-- <input class="button-blue" type="submit" value="Create Account" /> -->
+            <button class="button-blue">Create Account</button>
           </form>
         </div>
       </div>
     </main>
+    <script src="script.js"></script>
   </body>
 </html>

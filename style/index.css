@@ -65,6 +65,7 @@ main {
 
 .button-blue {
   border: none;
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -82,8 +83,11 @@ main {
   line-height: 140%;
   color: #ffffff;
   align-self: stretch;
+  transition: all 0.3s ease;
 }
-
+.button-blue:hover {
+  transform: scale(0.96);
+}
 /**************************/
 /* BELOW 950px (Tablets) */
 /**************************/
