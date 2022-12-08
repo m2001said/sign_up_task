@@ -1,18 +1,18 @@
 @font-face {
   font-family: abdoullah-ashgar-el-kharef;
-  src: url("/font/abdoullah-ashgar-el-kharef.ttf");
+  src: url("font/abdoullah-ashgar-el-kharef.ttf");
 }
 
 @font-face {
   font-family: Mulish;
-  src: url("/font/Mulish-VariableFont_wght.ttf");
+  src: url("font/Mulish-VariableFont_wght.ttf");
 }
 
 * {
   margin: 0;
 }
 body {
-  background: url(/imgs/gradientbackground.png), #ffffff;
+  background: url(imgs/gradientbackground.png), #ffffff;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
