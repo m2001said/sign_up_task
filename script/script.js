@@ -3,15 +3,14 @@ const username = document.getElementById("username");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
 const confirmPassword = document.getElementById("confirm-password");
-//
-const usernameValue = username.value.trim();
-const emailValue = email.value.trim();
-const passwordValue = password.value.trim();
-const confirmPasswordValue = confirmPassword.value.trim();
 
 let trueInput;
 
 const checkInputs = () => {
+  const usernameValue = username.value.trim();
+  const emailValue = email.value.trim();
+  const passwordValue = password.value.trim();
+  const confirmPasswordValue = confirmPassword.value.trim();
   // const first = usernameValue.substring(0, 1);
   // const last = usernameValue.substring(usernameValue.length - 1);
   // console.log(first, typeof first);
@@ -128,11 +127,19 @@ const setSuccessFor = (input) => {
 ---------------------------------------*/
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  console.log(e);
   checkInputs();
+  console.log(e);
 
-  const formData = new FormData(form);
-  const data = Object.fromEntries(formData);
+  const data = {
+    username: e.target[0].value,
+    email: e.target[1].value,
+    password: e.target[2].value,
+    confirmedPassword: e.target[3].value,
+  };
+  // const username = e.target[0].value;
+  // const email = e.target[1].value;
+  // const password = e.target[2].value;
+  // const confirmedPassword = e.target[3].value;
 
   fetch("https://reqres.in/api/users", {
     method: "POST",
@@ -143,7 +150,7 @@ form.addEventListener("submit", (e) => {
   })
     .then((res) => res.json())
     .then((data) => {
-      if ((trueInput = true)) {
+      if (trueInput) {
         const emailLocal = localStorage.setItem("email", email.value);
         const usernameLocal = localStorage.setItem("username", username.value);
         window.location.replace("succeeded.html");
@@ -160,9 +167,6 @@ form.addEventListener("submit", (e) => {
   //   .then((res) => res.json())
   //   .then((json) => {
   //     console.log(json);
-  //     window.location.pathname = "succeeded.html";
-  //     const changedEmail = (document.querySelector(".changed-email").innerHTML =
-  //       "All Done " + json.data.username + "email" + json.data.email);
   //   })
   //   .catch((error) => {
   //     console.log(error);
