@@ -21,7 +21,24 @@ displayed from sessionStorage, localStorage or cookies
 application form
 5- Don’t forget to pay attention to clean code
 
----
-## some defeculties 
--REGEX =>>> regular expresstion : for making user input from 0-15 and contain only letters and numbers , first and last letter shouldn't be number 
+
+## Some defeculties 
+- REGEX =>>> regular expresstion : for making user input from 0-15 and contain only letters and numbers , first and last letter shouldn't be number 
 /^[A-Za-z][A-Za-z0-9]{3,13}[A-Za-z]$/
+- fetching api is not working and i tried to use it but i use https://reqres.in/api/users and it succeeded.
+
+
+## Pages 
+##### Welcome page
+![welcome page](https://user-images.githubusercontent.com/91760639/206662521-e8f27fea-8890-4b9a-a2ee-ea19408d74af.jpg)
+
+##### Create account
+![create account](https://user-images.githubusercontent.com/91760639/206662641-dc424bc1-329d-45fd-868b-38a69c5543a4.jpg)
+
+##### Form validation
+![validation](https://user-images.githubusercontent.com/91760639/206662711-e451b956-4667-44ec-b3bd-21a776316cf4.jpg)
+
+##### Successfull validation
+![successfull](https://user-images.githubusercontent.com/91760639/206662830-562ac60c-2695-4322-b463-b8ae8325e4ef.jpg)
+
+
