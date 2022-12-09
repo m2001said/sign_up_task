@@ -20,8 +20,6 @@ form {
   border: 1px solid #dbe3ff;
   border-radius: 10px;
   position: relative;
-  /* for error message */
-  /* margin-bottom: 1rem; */
 }
 
 .container-text-input input {
@@ -96,8 +94,4 @@ span {
   .container {
     margin: 0;
   }
-}
-
-/* ///////////////////// */
-@media (max-width: 375px) {
 }

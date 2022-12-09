@@ -55,6 +55,7 @@ const checkInputs = () => {
 
 //for making error messages
 const setErrorFor = (input, message) => {
+  //get the parent dev of input to add classes for it
   const inputContainer = input.parentElement;
   const small = inputContainer.querySelector("small");
   inputContainer.className = "container-text-input error";
@@ -66,6 +67,8 @@ const setSuccessFor = (input) => {
   const inputContainer = input.parentElement;
   inputContainer.className = "container-text-input success";
 };
+
+//pass function for complete validation for the form to go to the next page
 const Pass = () => {
   const usernameValue = username.value.trim();
   const emailValue = email.value.trim();
@@ -79,6 +82,7 @@ const Pass = () => {
     confirmPasswordValue.length >= 8
   );
 };
+
 /*------------------------------------  
 -----------------Submit form-----------------
 ---------------------------------------*/
@@ -108,7 +112,6 @@ form.addEventListener("submit", (e) => {
         const usernameLocal = localStorage.setItem("username", username.value);
         window.location.replace("succeeded.html");
       }
-      console.log(data);
     })
     .catch((err) => console.log(err));
 });
