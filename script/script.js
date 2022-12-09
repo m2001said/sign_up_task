@@ -4,36 +4,18 @@ const email = document.getElementById("email");
 const password = document.getElementById("password");
 const confirmPassword = document.getElementById("confirm-password");
 
-let trueInput;
+let regex = /^[A-Za-z][A-Za-z0-9]{3,13}[A-Za-z]$/;
 
 const checkInputs = () => {
   const usernameValue = username.value.trim();
   const emailValue = email.value.trim();
   const passwordValue = password.value.trim();
   const confirmPasswordValue = confirmPassword.value.trim();
-  // const first = usernameValue.substring(0, 1);
-  // const last = usernameValue.substring(usernameValue.length - 1);
-  // console.log(first, typeof first);
-  // console.log(last, typeof last);
-  // if (first === 5) {
-  //   console.log("num");
-  // } else {
-  //   console.log("no");
-  // }
 
   //---------username-----------
   if (usernameValue === "") {
     setErrorFor(username, "Username cannot be empty");
-    //
-  } else if (usernameValue.length < 5 || usernameValue.length > 15) {
-    setErrorFor(username, "Username can be from 5 to 15 character only");
-    //
-  } else if (usernameValue[0] >= 0) {
-    setErrorFor(username, "Username can not start with any number");
-  } else if (usernameValue[usernameValue.length - 1] >= 0) {
-    setErrorFor(username, "Username can not end with any number");
-    // ! make sure
-  } else if (!usernameValue.match("^[A-Za-z0-9]*$")) {
+  } else if (!usernameValue.match(regex)) {
     setErrorFor(
       username,
       "Username only can be capital, small letters, numbers and no spaces"
@@ -77,51 +59,26 @@ const setErrorFor = (input, message) => {
   const small = inputContainer.querySelector("small");
   inputContainer.className = "container-text-input error";
   small.innerText = message;
-  trueInput = false;
 };
 
 //for making successful messages
 const setSuccessFor = (input) => {
   const inputContainer = input.parentElement;
   inputContainer.className = "container-text-input success";
-  trueInput = true;
 };
-
-//
-// const validCharacter = (username) => {
-//   const validCharacters =
-//     "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-//   for (var i = 0; i < username.length; i++) {
-//     if (validCharacters.indexOf(username.substr(i, 1)) == -1) {
-//       return false;
-//     }
-//   }
-// };
-// const validStartAndEnd = (username) => {
-//   for (let i = 0; i <= 9; i++) {
-//     if (
-//       username.substring(0, 1) === i ||
-//       username.substring(username.length - 1) === i
-//     ) {
-//       return false;
-//     } else {
-//       console.log("not valid");
-//     }
-//   }
-// };
-/*------------------------------------  
------------------Fetching Api-----------------
----------------------------------------*/
-// const api = (jsonData) => {
-//   return fetch("https://goldblv.com/api/hiring/tasks/register", {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify(jsonData),
-//   });
-// };
+const Pass = () => {
+  const usernameValue = username.value.trim();
+  const emailValue = email.value.trim();
+  const passwordValue = password.value.trim();
+  const confirmPasswordValue = confirmPassword.value.trim();
+  localStorage.setItem("User", emailValue);
+  return (
+    usernameValue.match(regex) &&
+    passwordValue.length >= 8 &&
+    confirmPasswordValue === passwordValue &&
+    confirmPasswordValue.length >= 8
+  );
+};
 /*------------------------------------  
 -----------------Submit form-----------------
 ---------------------------------------*/
@@ -136,10 +93,6 @@ form.addEventListener("submit", (e) => {
     password: e.target[2].value,
     confirmedPassword: e.target[3].value,
   };
-  // const username = e.target[0].value;
-  // const email = e.target[1].value;
-  // const password = e.target[2].value;
-  // const confirmedPassword = e.target[3].value;
 
   fetch("https://reqres.in/api/users", {
     method: "POST",
@@ -150,7 +103,7 @@ form.addEventListener("submit", (e) => {
   })
     .then((res) => res.json())
     .then((data) => {
-      if (trueInput) {
+      if (Pass()) {
         const emailLocal = localStorage.setItem("email", email.value);
         const usernameLocal = localStorage.setItem("username", username.value);
         window.location.replace("succeeded.html");
@@ -158,17 +111,4 @@ form.addEventListener("submit", (e) => {
       console.log(data);
     })
     .catch((err) => console.log(err));
-  // const username = e.target[0].value;
-  // const email = e.target[1].value;
-  // const password = e.target[2].value;
-  // const confirmedPassword = e.target[3].value;
-
-  // api({ username, email, password, confirmPassword })
-  //   .then((res) => res.json())
-  //   .then((json) => {
-  //     console.log(json);
-  //   })
-  //   .catch((error) => {
-  //     console.log(error);
-  //   });
 });
