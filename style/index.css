@@ -102,6 +102,10 @@ main {
   .container-img {
     width: 100%;
   }
+  .container-text h1,
+  .container-text p {
+    text-align: center;
+  }
 }
 
 /**************************/
@@ -127,7 +131,6 @@ main {
 
   .container-text p {
     font-size: 1.2rem;
-    text-align: center;
   }
 }
 
