@@ -3,13 +3,15 @@ const username = document.getElementById("username");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
 const confirmPassword = document.getElementById("confirm-password");
+//
+const usernameValue = username.value.trim();
+const emailValue = email.value.trim();
+const passwordValue = password.value.trim();
+const confirmPasswordValue = confirmPassword.value.trim();
+
+let trueInput;
 
 const checkInputs = () => {
-  const usernameValue = username.value.trim();
-  const emailValue = email.value.trim();
-  const passwordValue = password.value.trim();
-  const confirmPasswordValue = confirmPassword.value.trim();
-
   // const first = usernameValue.substring(0, 1);
   // const last = usernameValue.substring(usernameValue.length - 1);
   // console.log(first, typeof first);
@@ -76,12 +78,14 @@ const setErrorFor = (input, message) => {
   const small = inputContainer.querySelector("small");
   inputContainer.className = "container-text-input error";
   small.innerText = message;
+  trueInput = false;
 };
 
 //for making successful messages
 const setSuccessFor = (input) => {
   const inputContainer = input.parentElement;
   inputContainer.className = "container-text-input success";
+  trueInput = true;
 };
 
 //
@@ -139,9 +143,11 @@ form.addEventListener("submit", (e) => {
   })
     .then((res) => res.json())
     .then((data) => {
-      const emailLocal = localStorage.setItem("email", email.value);
-      const usernameLocal = localStorage.setItem("username", username.value);
-      window.location.replace("succeeded.html");
+      if ((trueInput = true)) {
+        const emailLocal = localStorage.setItem("email", email.value);
+        const usernameLocal = localStorage.setItem("username", username.value);
+        window.location.replace("succeeded.html");
+      }
       console.log(data);
     })
     .catch((err) => console.log(err));
