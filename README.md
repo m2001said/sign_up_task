@@ -1,4 +1,4 @@
-##Task for Valinteca
+## Task for Valinteca
 1- You need to create a 3-page website as shown here at figma:
 https://www.figma.com/file/6DeOGqcKRgnraPT9ivDqaR/Signup-Flow-UI-(Community)?node-id=
 106%3A220&t=sUDAD21WSxWjMwPH-0
