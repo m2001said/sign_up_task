@@ -23,11 +23,13 @@ password, you need to validate the form
   application form
   5- Don’t forget to pay attention to clean code
 
-## Some defeculties
+## Some defeculties which feced me :
 
 - REGEX =>>> regular expresstion : for making user input from 0-15 and contain only letters and numbers , first and last letter shouldn't be number
   /^[A-Za-z][a-za-z0-9]{3,13}[A-Za-z]$/
 - fetching api is not working and i tried to use it but i use https://reqres.in/api/users and it succeeded.
+- before and after psuedo-elements can not be for any self closing tag like : input , img.
+
 
 ## Pages
 
